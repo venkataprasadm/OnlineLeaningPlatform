@@ -1,0 +1,52 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <Sdk Name="Microsoft.Build.CentralPackageVersions" Version="2.1.3" />
+
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+    <PreserveCompilationContext>true</PreserveCompilationContext>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Core\ProjectAggregate\**" />
+    <Compile Remove="Core\Services\**" />
+    <Compile Remove="Core\Specifications\**" />
+    <EmbeddedResource Remove="Core\ProjectAggregate\**" />
+    <EmbeddedResource Remove="Core\Services\**" />
+    <EmbeddedResource Remove="Core\Specifications\**" />
+    <None Remove="Core\ProjectAggregate\**" />
+    <None Remove="Core\Services\**" />
+    <None Remove="Core\Specifications\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="ToDoItemBuilder.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.10.0" />
+    <PackageReference Include="xunit.runner.visualstudio" Version="2.8.1">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="coverlet.collector" Version="6.0.2">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="ReportGenerator" Version="5.3.6" />
+    <PackageReference Include="Moq" Version="4.20.70" />
+    <PackageReference Include="xunit" Version="2.8.1" />
+  </ItemGroup>
+  
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\SmartLearning.Web\SmartLearning.Web.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="xunit.runner.json">
+	  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+</Project>
